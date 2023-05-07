@@ -1,1 +1,47 @@
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バズるミーム画像ジェネレータ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>バズるミーム画像ジェネレータ</h1>
+    </header>
+    <main>
+        <section>
+            <h2>画像アップロード</h2>
+            <input type="file" id="image-upload">
+        </section>
+        <section>
+            <h2>ミームテキスト</h2>
+            <input type="text" id="text-top" placeholder="上部テキスト">
+            <input type="text" id="text-bottom" placeholder="下部テキスト">
+        </section>
+        <section>
+            <h2>ミーム画像</h2>
+            <canvas id="meme-canvas"></canvas>
+        </section>
+        <section>
+            <h2>ランキング</h2>
+            <ul id="ranking-list"></ul>
+        </section>
+        <section>
+            <h2>友達招待</h2>
+            <input type="text" id="invite-link" readonly>
+            <button id="generate-invite-link">招待リンク生成</button>
+            <button id="copy-invite-link">招待リンクをコピー</button>
+        </section>
+        <section>
+            <h2>ミーム画像のダウンロード</h2>
+            <button id="download-meme">画像をダウンロード</button>
+        </section>
+    </main>
+    <footer>
+        &copy; 2023 バズるミーム画像ジェネレータ
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
