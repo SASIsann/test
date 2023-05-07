@@ -4,8 +4,19 @@ const textBottom = document.getElementById('text-bottom');
 const memeCanvas = document.getElementById('meme-canvas');
 const ctx = memeCanvas.getContext('2d');
 const downloadMeme = document.getElementById('download-meme');
+const generateImage = document.getElementById('generate-image');
+const inviteLink = document.getElementById('invite-link');
+const generateInviteLink = document.getElementById('generate-invite-link');
+const copyInviteLink = document.getElementById('copy-invite-link');
 
-imageUpload.addEventListener('change', function() {
+imageUpload.addEventListener('change', handleImageUpload);
+textTop.addEventListener('input', drawText);
+textBottom.addEventListener('input', drawText);
+generateImage.addEventListener('click', handleImageUpload);
+generateInviteLink.addEventListener('click', handleInviteLinkGeneration);
+copyInviteLink.addEventListener('click', handleInviteLinkCopy);
+
+function handleImageUpload() {
     const file = this.files[0];
     const reader = new FileReader();
 
@@ -22,11 +33,12 @@ imageUpload.addEventListener('change', function() {
         };
     };
 
-    reader.readAsDataURL(file);
-});
-
-textTop.addEventListener('input', drawText);
-textBottom.addEventListener('input', drawText);
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        drawText();
+    }
+}
 
 function drawText() {
     ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
@@ -54,3 +66,13 @@ downloadMeme.addEventListener('click', function() {
     link.download = 'meme.png';
     link.click();
 });
+
+function handleInviteLinkGeneration() {
+    inviteLink.value = window.location.href;
+}
+
+function handleInviteLinkCopy() {
+    inviteLink.select();
+    document.execCommand('copy');
+}
+
