@@ -47,7 +47,6 @@ function drawText() {
     }
 
     ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
-
     ctx.font = '48px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillStyle = 'white';
