@@ -16,6 +16,8 @@ generateImage.addEventListener('click', handleImageUpload);
 generateInviteLink.addEventListener('click', handleInviteLinkGeneration);
 copyInviteLink.addEventListener('click', handleInviteLinkCopy);
 
+let currentImage = null; // アップロードされた画像を保存するためのグローバル変数を追加
+
 function handleImageUpload() {
     const file = this.files[0];
     const reader = new FileReader();
@@ -27,9 +29,8 @@ function handleImageUpload() {
         img.onload = function() {
             memeCanvas.width = img.width;
             memeCanvas.height = img.height;
-            ctx.drawImage(img, 0, 0, img.width, img.height);
-
-            drawText();
+            currentImage = img; // 画像をグローバル変数に保存
+            drawText(); // 画像とテキストを描画する関数を呼び出す
         };
     };
 
@@ -42,6 +43,13 @@ function handleImageUpload() {
 
 function drawText() {
     ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
+
+    if (currentImage) { // アップロードされた画像がある場合
+        ctx.drawImage(currentImage, 0, 0, memeCanvas.width, memeCanvas.height); // 画像をキャンバスに描画する
+    }
+
+    // 以降のテキスト描画コードは同じです。
+}
 
     const img = new Image();
     img.src = imageUpload.src;
