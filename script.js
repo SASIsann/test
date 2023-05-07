@@ -42,18 +42,11 @@ function handleImageUpload() {
 }
 
 function drawText() {
-    ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
-
     if (currentImage) { // アップロードされた画像がある場合
         ctx.drawImage(currentImage, 0, 0, memeCanvas.width, memeCanvas.height); // 画像をキャンバスに描画する
     }
 
-    // 以降のテキスト描画コードは同じです。
-}
-
-    const img = new Image();
-    img.src = imageUpload.src;
-    ctx.drawImage(img, 0, 0, memeCanvas.width, memeCanvas.height);
+    ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
 
     ctx.font = '48px sans-serif';
     ctx.textAlign = 'center';
