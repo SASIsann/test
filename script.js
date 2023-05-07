@@ -75,4 +75,3 @@ function handleInviteLinkCopy() {
     inviteLink.select();
     document.execCommand('copy');
 }
-
