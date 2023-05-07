@@ -12,24 +12,34 @@
     </header>
     <main>
         <section>
+            <h2>使い方</h2>
+            <ol>
+                <li>「画像アップロード」で画像を選択します。</li>
+                <li>「ミームテキスト」で画像の上部と下部に表示するテキストを入力します。</li>
+                <li>「画像生成開始」ボタンをクリックしてミーム画像を生成します。</li>
+            </ol>
+        </section>
+        <section>
             <h2>画像アップロード</h2>
             <input type="file" id="image-upload">
         </section>
         <section>
             <h2>ミームテキスト</h2>
-            <input type="text" id="text-top" placeholder="上部テキスト">
-            <input type="text" id="text-bottom" placeholder="下部テキスト">
+            <label>
+                上部テキスト: <input type="text" id="text-top" placeholder="上部テキスト">
+            </label>
+            <label>
+                下部テキスト: <input type="text" id="text-bottom" placeholder="下部テキスト">
+            </label>
+            <button id="generate-image">画像生成開始</button>
         </section>
         <section>
             <h2>ミーム画像</h2>
             <canvas id="meme-canvas"></canvas>
         </section>
         <section>
-            <h2>ランキング</h2>
-            <ul id="ranking-list"></ul>
-        </section>
-        <section>
             <h2>友達招待</h2>
+            <p>以下のリンクを共有して友達を招待しましょう。</p>
             <input type="text" id="invite-link" readonly>
             <button id="generate-invite-link">招待リンク生成</button>
             <button id="copy-invite-link">招待リンクをコピー</button>
@@ -40,8 +50,9 @@
         </section>
     </main>
     <footer>
-        &copy; 2023 バズるミーム画像ジェネレータ
+        <p>&copy; 2023 バズるミーム画像ジェネレータ. All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
 </body>
 </html>
+
